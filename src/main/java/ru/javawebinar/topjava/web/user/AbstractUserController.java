@@ -8,6 +8,9 @@ import ru.javawebinar.topjava.service.UserService;
 
 import java.util.List;
 
+import static ru.javawebinar.topjava.util.ValidationUtil.checkCreate;
+import static ru.javawebinar.topjava.util.ValidationUtil.checkUpdate;
+
 /**
  * User: gkislin
  */
@@ -28,7 +31,7 @@ public abstract class AbstractUserController {
     }
 
     public User create(User user) {
-        user.setId(null);
+        checkCreate(user);
         LOG.info("create " + user);
         return service.save(user);
     }
@@ -39,7 +42,7 @@ public abstract class AbstractUserController {
     }
 
     public void update(User user, int id) {
-        user.setId(id);
+        checkUpdate(user, id);
         LOG.info("update " + user);
         service.update(user);
     }

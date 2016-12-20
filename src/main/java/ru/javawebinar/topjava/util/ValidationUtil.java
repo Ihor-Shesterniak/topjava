@@ -1,6 +1,7 @@
 package ru.javawebinar.topjava.util;
 
 
+import ru.javawebinar.topjava.model.BaseEntity;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
 
 /**
@@ -23,5 +24,18 @@ public class ValidationUtil {
 
     public static void checkNotFound(boolean found, String msg) {
         if (!found) throw new NotFoundException("Not found entity with " + msg);
+    }
+    public static void checkCreate(BaseEntity entity) {
+        if (!entity.isNew()) {
+            throw new IllegalArgumentException(entity + " must be new (id=null)");
+        }
+    }
+
+    public static void checkUpdate(BaseEntity entity, int id) {
+        if (entity.isNew()) {
+            entity.setId(id);
+        } else if (entity.getId() != id) {
+            throw new IllegalArgumentException(entity + " must be with id=" + id);
+        }
     }
 }

@@ -1,6 +1,6 @@
 package ru.javawebinar.topjava;
 
-import ru.javawebinar.topjava.util.MealsUtil;
+import ru.javawebinar.topjava.to.MealsUtil;
 
 /**
  * GKislin
