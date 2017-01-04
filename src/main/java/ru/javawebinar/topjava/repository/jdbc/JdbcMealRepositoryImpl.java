@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import ru.javawebinar.topjava.model.Meal;
+import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.MealRepository;
 
 import javax.sql.DataSource;
@@ -53,6 +54,8 @@ public class JdbcMealRepositoryImpl implements MealRepository {
         if (userMeal.isNew()) {
             Number newId = insertMeal.executeAndReturnKey(map);
             userMeal.setId(newId.intValue());
+            Number newI = insertMeal.executeAndReturnKey(map);
+            userMeal.setId(newI.intValue());
         } else {
             if (namedParameterJdbcTemplate.update("" +
                             "UPDATE meals " +
