@@ -7,7 +7,9 @@
         </encoder>
     </appender>
 
-    <logger name="org.springframework.jdbc" level="debug"/>
+    <!--<logger name="org.springframework.jdbc" level="debug"/>-->
+    <!--Duplicate jpa.showSql=true: <logger name="org.hibernate.SQL" level="debug"/> -->
+
     <logger name="ru.javawebinar.topjava" level="debug"/>
 
     <root level="WARN">
