@@ -15,3 +15,7 @@ before_script:
 # https://docs.travis-ci.com/user/notifications#Configuring-email-notifications
 notifications:
   email: false
+
+# https://docs.travis-ci.com/user/notifications#Configuring-email-notifications
+notifications:
+  email: false
