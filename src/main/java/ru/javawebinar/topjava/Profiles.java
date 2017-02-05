@@ -1,5 +1,7 @@
 package ru.javawebinar.topjava;
 
+import org.springframework.util.ClassUtils;
+
 public class Profiles {
     public static final String
             POSTGRES = "postgres",
@@ -12,11 +14,11 @@ public class Profiles {
 
     public static String getActiveDbProfile() {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver", true, ClassUtils.getDefaultClassLoader());
             return Profiles.POSTGRES;
         } catch (ClassNotFoundException ex) {
             try {
-                Class.forName("org.hsqldb.jdbcDriver");
+                Class.forName("org.hsqldb.jdbcDriver", true, ClassUtils.getDefaultClassLoader());
                 return Profiles.HSQLDB;
             } catch (ClassNotFoundException e) {
                 throw new IllegalStateException("Could not resolve DB profile");
