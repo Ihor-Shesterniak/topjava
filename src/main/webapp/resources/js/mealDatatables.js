@@ -2,6 +2,11 @@ var ajaxUrl = "ajax/profile/meals/";
 var datatableApi;
 
 // $(document).ready(function () {
+function clearFilter() {
+    $("#filter").find(":input").val("");
+    $.get(ajaxUrl, updateTableByData);
+}
+
 function updateTable() {
     $.ajax({
         type: "POST",

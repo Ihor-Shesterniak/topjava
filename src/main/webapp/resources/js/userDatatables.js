@@ -5,6 +5,19 @@ function updateTable() {
     $.get(ajaxUrl, updateTableByData);
 }
 
+function enable(chkbox, id) {
+    var enabled = chkbox.is(":checked");
+    $.ajax({
+        url: ajaxUrl + id,
+        type: 'POST',
+        data: 'enabled=' + enabled,
+        success: function () {
+            chkbox.closest('tr').fadeTo(300, enabled ? 1 : 0.3);
+            successNoty(enabled ? 'Enabled' : 'Disabled');
+        }
+    });
+}
+
 // $(document).ready(function () {
 $(function () {
     datatableApi = $('#datatable').DataTable({
@@ -41,6 +54,11 @@ $(function () {
                 "asc"
             ]
         ]
+    });
+    $(':checkbox').each(function () {
+        if (!$(this).is(":checked")) {
+            $(this).closest('tr').css("opacity", 0.3);
+        }
     });
     makeEditable();
 });
