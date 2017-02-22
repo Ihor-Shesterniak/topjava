@@ -9,5 +9,7 @@ public interface HasId {
 
     void setId(Integer id);
 
-    boolean isNew();
+    default boolean isNew() {
+        return (getId() == null);
+    }
 }
