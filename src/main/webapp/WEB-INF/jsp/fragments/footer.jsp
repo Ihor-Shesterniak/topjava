@@ -3,8 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="footer">
-    <div class="container">
-        <spring:message code="app.footer"/>
+    <div id="one"><span><spring:message code="app.footer"/></span></div>
+    <div id="two"><span><spring:message code="app.footerTechnology"/></span></div>
+    <div id="tree"><span><spring:message code="app.footerContacts"/> ihor.<a
+            href="https://www.linkedin.com/in/ihor-shesterniak-14a519142/" title="Add Me to Contacts" target=_blank>shesterniak</a>@gmail.com</span>
     </div>
 </div>
 
